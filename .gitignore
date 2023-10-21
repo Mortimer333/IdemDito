@@ -1,0 +1,9 @@
+.idea
+/*/config.js
+/components/src/config.js
+/components/src/dito.js
+/components/src/ditoelement.js
+/components/node_modules
+/*/media/*/dist/*
+!/*/media/*/dist/.gitkeep
+tailwindcss.log

@@ -1,0 +1,39 @@
+{
+  "name": "idem-dito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "minify-js": "esbuild `find ./src -name '*.js'` --outdir=./dist --minify --platform=neutral",
+    "minify-css": "esbuild `find ./src -name '*.css'` --outdir=./dist --minify --platform=neutral",
+    "copy-html": "(cd src/ && find ./ -type f | grep -i '.html$' | xargs -i cp {} ../dist --parents -r)",
+    "minify-components": "npm-run-all minify-js minify-css copy-html",
+    "parse-css": "find ../*/media/style/master.css | xargs -i esbuild {} --loader:.ttf=dataurl --loader:.otf=dataurl --loader:.woff2=dataurl --loader:.woff=dataurl --outfile={}/../dist/master.min.css --minify --bundle",
+    "parse-js": "find ../*/components.js | xargs -i esbuild {} --outfile={}/../media/script/dist/components.min.js --minify --bundle --format=esm",
+    "parse-tailwind": "find ../*/tailwind.config.js -exec readlink -f {} \\; | xargs -I{} dirname {} | xargs -i tailwindcss -c {}/tailwind.config.js -i {}/media/style/input.css -o {}/media/style/dist/output.css",
+    "parse": "npm-run-all parse-*",
+    "css-watch": "esbuild ../$APP/media/style/master.css --loader:.ttf=dataurl --loader:.otf=dataurl --loader:.woff2=dataurl --loader:.woff=dataurl --outfile=../$APP/media/style/dist/master.min.css --bundle --watch",
+    "js-watch": "esbuild ../$APP/components.js --outfile=../$APP/media/script/dist/components.min.js --bundle --format=esm --watch",
+    "tailwind-watch": "tailwindcss -c ../$APP/tailwind.config.js -i ../$APP/media/style/input.css -o ../$APP/media/style/dist/output.css --watch",
+    "dito": "esbuild dito.bundle.js --bundle --minify --platform=neutral --main-fields=module,main --outfile=dist/dito.js && cat dist/dito.js > src/dito.js",
+    "ditoelement": "esbuild ditoelement.bundle.js --bundle --minify --platform=neutral --main-fields=module,main --outfile=dist/ditoelement.js && cat dist/ditoelement.js > src/ditoelement.js",
+    "app-watchers": "npm-run-all --parallel *-watch",
+    "watch-master": "APP=master npm run app-watchers",
+    "dev": "npm-run-all --parallel watch-* minify-components dito ditoelement",
+    "prod": "npm-run-all minify-components parse dito ditoelement"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@mortimer333/dito": "^1.0.1",
+    "esbuild": "0.18.6",
+    "semver": "^7.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-sonarjs": "^0.21.0",
+    "npm-run-all": "^1.7.0",
+    "tailwindcss": "^3.3.2"
+  }
+}
