@@ -8,8 +8,8 @@ const {
 
 class Root extends DitoElement {
   async init() {
-    __bm.root = __bm.root || { config };
-    __bm.permissions = {
+    __id.root = __id.root || { config };
+    __id.permissions = {
       loggedIn: ['ROLE_USER'],
       notLoggedIn: ['NOT_LOGGED_IN'],
     };
@@ -25,11 +25,11 @@ class Root extends DitoElement {
     }
 
     return visibility.filter(value => {
-      if (!Array.isArray(__bm.root.config?.user?.details?.roles)) {
-        return value === __bm.permissions.notLoggedIn[0];
+      if (!Array.isArray(__id.root.config?.user?.details?.roles)) {
+        return value === __id.permissions.notLoggedIn[0];
       }
 
-      return __bm.root.config.user.details.roles.includes(value);
+      return __id.root.config.user.details.roles.includes(value);
     }).length > 0;
   }
 }

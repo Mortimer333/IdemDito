@@ -12,7 +12,7 @@ class MasterInBetween extends Master {
         component: 'master-main',
       },
       '/user': {
-        visibility: __bm.permissions.notLoggedIn,
+        visibility: __id.permissions.loggedIn,
         meta: {
           title: 'User Panel',
           description: 'Example of visibility use',

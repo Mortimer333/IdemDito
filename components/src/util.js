@@ -5,7 +5,7 @@ class Util {
       const link = document.createElement('link');
       link.type = 'text/css';
       link.rel = 'stylesheet';
-      link.href = href + '?domain=' + document.location.host + '&version=' + __bm.config.version;
+      link.href = href + '?domain=' + document.location.host + '&version=' + __id.config.version;
       head.appendChild(link);
     });
   }
@@ -23,9 +23,9 @@ class Util {
   }
 
   static async require(path, queryParams = {}) {
-    const url = new URL(__bm.config.components_url + path);
+    const url = new URL(__id.config.components_url + path);
     url.searchParams.append('domain', document.location.host);
-    url.searchParams.append('version', __bm.config.version);
+    url.searchParams.append('version', __id.config.version);
 
     Object.keys(queryParams).forEach(param => {
       url.searchParams.append(param, queryParams[param]);

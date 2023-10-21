@@ -1,14 +1,14 @@
-import config from './config.example.js';
-import Util from '../components/src/util.js';
-import { Dito } from '../components/src/dito.js';
+import config from './config.js';
 
 window.__bm = {
   config
 };
 
+await import(config.components_url + 'util.js');
+const { Dito } = await Util.require('dito.min.js');
+
 Util.requireStyleSheets(['/media/style/dist/master.min.css']);
 
-const version = config.version;
 const dito = new Dito({
   url: config.components_url
 });
@@ -23,9 +23,10 @@ dito.bulk({
   ],
   'master/master-': [
     'in-between',
+    'main',
     '404',
     '401',
   ]
-}, version);
+}, config.version);
 
 dito.load();

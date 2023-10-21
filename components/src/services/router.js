@@ -63,7 +63,7 @@ class Router {
     }
 
     if (!tag) {
-      return { component: window.__bm.config.errors[404], error: 404 };
+      return { component: window.__id.config.errors[404], error: 404 };
     }
 
     if (
@@ -73,7 +73,7 @@ class Router {
         || tag.visibility.filter(value => user?.details?.roles?.includes(value)).length === 0
       )
     ) {
-      return { component: window.__bm.config.errors[401], error: 401 };
+      return { component: window.__id.config.errors[401], error: 401 };
     }
     return tag;
   }

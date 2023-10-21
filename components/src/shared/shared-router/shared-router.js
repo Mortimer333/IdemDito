@@ -55,7 +55,7 @@ class SharedRouter extends Shared {
 
   redirect() {
     this.lastLocation = location.href + '';
-    const user = __bm.root.config?.user,
+    const user = __id.root.config?.user,
       tag = Router.getTag(this.$.navigation, user),
       eventItem = { tag, user },
       tagName = tag.component;
