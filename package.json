@@ -1,0 +1,29 @@
+{
+  "name": "create-app-dito",
+  "version": "1.0.0",
+  "description": "Dito App Skeleton",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mortimer333/IdemDito.git"
+  },
+  "bin": {
+    "create-app-dito": "./bin/index.js"
+  },
+  "files": [
+    "*"
+  ],
+  "keywords": [
+    "dito",
+    "app",
+    "skeleton"
+  ],
+  "author": "Michał Dzierzbicki",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/Mortimer333/IdemDito/issues"
+  },
+  "homepage": "https://github.com/Mortimer333/IdemDito#readme"
+}
