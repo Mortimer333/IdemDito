@@ -7,3 +7,4 @@
 /*/media/*/dist/*
 !/*/media/*/dist/.gitkeep
 tailwindcss.log
+node_modules

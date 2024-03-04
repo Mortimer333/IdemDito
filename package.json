@@ -5,12 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mortimer333/IdemDito.git"
   },
   "bin": {
-    "create-app-dito": "./bin/index.js"
+    "create-app-dito": "bin/index.js"
   },
   "files": [
     "*"
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Mortimer333/IdemDito/issues"
   },
-  "homepage": "https://github.com/Mortimer333/IdemDito#readme"
+  "homepage": "https://github.com/Mortimer333/IdemDito#readme",
+  "dependencies": {
+    "fast-glob": "^3.3.2"
+  }
 }
