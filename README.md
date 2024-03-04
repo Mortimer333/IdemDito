@@ -2,6 +2,24 @@
 Micro Frontend, One-Page Application example written in `Dito` together with `npm` (`Tailwind CSS` and `esbuild`) as 
 example of integration with other packages if necessary.
 
+## Installation
+To create project based on this:
+```bash
+npx create-app-dito@latest
+```
+Then, in `components` directory run:
+```bash
+npm install
+```
+and to start application (also in `components`):
+```bash
+npm run dev   # watchers
+              # or 
+npm run prod  # just minify
+```
+
+__Tested on Ubuntu 20/22__
+
 ### In more than one sentence
 This is an example of usage of `Dito` library in bigger scale then single landing page.
 A showcase what can be done and proof of concept that it can be used for enterprise solutions. I will only explain the 
